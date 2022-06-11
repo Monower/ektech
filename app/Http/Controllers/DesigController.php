@@ -55,12 +55,19 @@ class DesigController extends Controller
         $data=Formdata::create($glo);
 
  
-        $desig=new Designation;
+/*         $desig=new Designation;
         $desig->id=$data->id;
         $desig->designation=$request->designation;
         $desig->user_id=$data->id;
 
-        $desig->save();
+        $desig->save(); */
+
+        //Designation::create($glo);
+
+        $data->desig()->create([
+            'designation'=>$request->designation
+/*             'user_id'=>$data->id */
+        ]);
  
 
         Session::flash('msg','new employee added');
